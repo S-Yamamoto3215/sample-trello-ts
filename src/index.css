@@ -46,3 +46,32 @@ header {
   border: none;
   outline: none;
 }
+
+.taskAddInput {
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+
+.taskBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px gray;
+}
+
+.taskText {
+  margin-left: 12px;
+}
+
+.taskRemoveBtn {
+  margin-right: 9px;
+  border: none;
+}
