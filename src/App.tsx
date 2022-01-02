@@ -1,6 +1,9 @@
-const App = () => {
+import { Header } from "./components/header/Header";
+
+const App: React.VFC = () => {
   return (
-    <div>
+    <div className='app'>
+      <Header/>
     </div>
   );
 }
