@@ -23,6 +23,7 @@ export const TaskAddInput: React.VFC<TaskAddInputProps> = ({
 
     const newTask: TaskType = {
       id: taskCount,
+      draggableId: `task-${taskCount}`,
       title: inputText,
     }
 

@@ -1,13 +1,16 @@
+import { Draggable } from "react-beautiful-dnd";
 import { FaTrashAlt } from "react-icons/fa";
 
 import { TaskType } from './Type'
 
 type TaskProps = {
+  index: number;
   task: TaskType
   setTaskList: React.Dispatch<React.SetStateAction<TaskType[]>>;
 }
 
 export const Task: React.VFC<TaskProps> = ({
+  index,
   task,
   setTaskList
 }) => {
@@ -16,14 +19,23 @@ export const Task: React.VFC<TaskProps> = ({
   }
 
   return (
-    <div className='taskBox'>
-      <p className='taskText'>{task.title}</p>
-      <button
-        className='taskRemoveBtn'
-        onClick={() => removeTask(task.id)}
-      >
-        <FaTrashAlt />
-      </button>
-    </div>
+    <Draggable index={index} draggableId={task.draggableId}>
+      {(provided) => (
+        <div
+          className='taskBox'
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <p className='taskText'>{task.title}</p>
+          <button
+            className='taskRemoveBtn'
+            onClick={() => removeTask(task.id)}
+          >
+            <FaTrashAlt />
+          </button>
+        </div>
+      )}
+    </Draggable>
   )
 }
