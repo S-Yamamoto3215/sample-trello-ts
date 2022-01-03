@@ -74,4 +74,5 @@ header {
 .taskRemoveBtn {
   margin-right: 9px;
   border: none;
+  cursor: pointer;
 }
