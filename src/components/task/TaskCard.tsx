@@ -6,21 +6,30 @@ import { Tasks } from "./Tasks";
 
 import { TaskType } from "./Type";
 
-export const TaskCard: React.VFC = () => {
+type TaskCardProps = {
+  id: string;
+  title: string;
+  draggableId: string;
+  tasks: TaskType[],
+}
+
+export const TaskCard: React.VFC<TaskCardProps> = ({
+  id,
+  title,
+  draggableId,
+  tasks,
+}) => {
   const [inputText, setInputText] = useState("")
-  const [taskList, setTaskList] = useState<TaskType[]>([])
-  const [taskCount, setTaskCount] = useState(taskList.length)
+  const [taskList, setTaskList] = useState<TaskType[]>(tasks)
 
   return (
     <div className='taskCard'>
-      <TaskCardTitle />
+      <TaskCardTitle title={title} />
       <TaskCardDeleteButton />
       <TaskAddInput
         inputText={inputText}
         setInputText={setInputText}
         setTaskList={setTaskList}
-        taskCount={taskCount}
-        setTaskCount={setTaskCount}
       />
       <Tasks
         taskList={taskList}

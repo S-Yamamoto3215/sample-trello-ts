@@ -6,16 +6,12 @@ type TaskAddInputProps = {
   inputText: string;
   setInputText: React.Dispatch<React.SetStateAction<string>>;
   setTaskList: React.Dispatch<React.SetStateAction<TaskType[]>>;
-  taskCount: number;
-  setTaskCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const TaskAddInput: React.VFC<TaskAddInputProps> = ({
   inputText,
   setInputText,
   setTaskList,
-  taskCount,
-  setTaskCount,
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +28,6 @@ export const TaskAddInput: React.VFC<TaskAddInputProps> = ({
     }
 
     setTaskList((prevList) => [...prevList, newTask])
-    setTaskCount((prevCount) => prevCount + 1)
     setInputText("")
   }
 

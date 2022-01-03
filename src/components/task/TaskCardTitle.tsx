@@ -1,8 +1,14 @@
 import { useState } from "react";
 
-export const TaskCardTitle: React.VFC = () => {
+type TaskCardTitleProps = {
+  title: string;
+}
+
+export const TaskCardTitle: React.VFC<TaskCardTitleProps> = ({
+  title
+}) => {
   const [isClick, setIsClick] = useState(false)
-  const [inputCardTitle, setInputCardTitle] = useState("Today")
+  const [inputCardTitle, setInputCardTitle] = useState(title)
 
   const handleClick = () => {
     setIsClick(true);
