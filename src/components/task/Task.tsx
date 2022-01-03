@@ -14,7 +14,7 @@ export const Task: React.VFC<TaskProps> = ({
   task,
   setTaskList
 }) => {
-  const removeTask = (taskId: number) => {
+  const removeTask = (taskId: string) => {
     setTaskList((prevTaskList) => prevTaskList.filter((prevTask) => prevTask.id !== taskId))
   }
 

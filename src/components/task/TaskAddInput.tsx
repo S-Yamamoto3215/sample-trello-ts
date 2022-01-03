@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import { TaskType } from './Type';
 
 type TaskAddInputProps = {
@@ -21,9 +23,11 @@ export const TaskAddInput: React.VFC<TaskAddInputProps> = ({
       return
     }
 
+    const taskId = uuidv4();
+
     const newTask: TaskType = {
-      id: taskCount,
-      draggableId: `task-${taskCount}`,
+      id: taskId,
+      draggableId: `task-${taskId}`,
       title: inputText,
     }
 
