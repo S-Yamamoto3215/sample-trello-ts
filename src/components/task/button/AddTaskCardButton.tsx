@@ -1,6 +1,7 @@
 export const AddTaskCardButton: React.VFC = () => {
   return (
-    <div>
+    <div className='addTaskCardBtnArea'>
+      <button className='addTaskCardBtn'>+</button>
     </div>
   )
 }
