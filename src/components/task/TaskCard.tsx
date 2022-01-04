@@ -24,8 +24,10 @@ export const TaskCard: React.VFC<TaskCardProps> = ({
 
   return (
     <div className='taskCard'>
-      <TaskCardTitle title={title} />
-      <TaskCardDeleteButton />
+      <div className='taskCardHeader'>
+        <TaskCardTitle title={title} />
+        <TaskCardDeleteButton />
+      </div>
       <TaskAddInput
         inputText={inputText}
         setInputText={setInputText}
