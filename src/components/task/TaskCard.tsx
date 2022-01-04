@@ -4,13 +4,14 @@ import { TaskCardDeleteButton } from "./button/TaskCardDeleteButton";
 import { TaskAddInput } from "./TaskAddInput";
 import { Tasks } from "./Tasks";
 
-import { TaskType } from "./Type";
+import { CardType, TaskType } from "./Type";
 
 type TaskCardProps = {
   id: string;
   title: string;
   draggableId: string;
-  tasks: TaskType[],
+  tasks: TaskType[];
+  setTaskCardList: React.Dispatch<React.SetStateAction<CardType[]>>;
 }
 
 export const TaskCard: React.VFC<TaskCardProps> = ({
@@ -18,6 +19,7 @@ export const TaskCard: React.VFC<TaskCardProps> = ({
   title,
   draggableId,
   tasks,
+  setTaskCardList
 }) => {
   const [inputText, setInputText] = useState("")
   const [taskList, setTaskList] = useState<TaskType[]>(tasks)
@@ -26,7 +28,10 @@ export const TaskCard: React.VFC<TaskCardProps> = ({
     <div className='taskCard'>
       <div className='taskCardHeader'>
         <TaskCardTitle title={title} />
-        <TaskCardDeleteButton />
+        <TaskCardDeleteButton
+          id={id}
+          setTaskCardList={setTaskCardList}
+        />
       </div>
       <TaskAddInput
         inputText={inputText}

@@ -19,6 +19,7 @@ export const TaskCards: React.VFC = () => {
               title={taskCard.title}
               draggableId={taskCard.draggableId}
               tasks={taskCard.tasks ? taskCard.tasks : []}
+              setTaskCardList={setTaskCardList}
             />
           )
         })
